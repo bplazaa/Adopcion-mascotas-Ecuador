@@ -26,6 +26,7 @@ $usuario->idUsuario = $data->idUsuario;
 // set product property values
 $usuario->nombreUsuario = $data->nombreUsuario;
 $usuario->apellidoUsuario = $data->apellidoUsuario;
+$usuario->email = $data->email;
 $usuario->celular = $data->celular ;
 $usuario->direccion = $data->direccion;
 $usuario->edad = $data->edad;
