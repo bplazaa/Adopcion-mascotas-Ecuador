@@ -27,6 +27,7 @@ if($num>0){
         extract($row);
   
         $mascota_item=array(
+            "id" => $id,
             "nombre" => $nombre,
             "raza" => $raza,
             "contacto" => $contacto,

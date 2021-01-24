@@ -21,7 +21,7 @@ class Mascota{
 
     function read(){
         $query = "SELECT
-                    nombre, raza,contacto,sexo,especie,foto
+                    id,nombre, raza,contacto,sexo,especie,foto
                 FROM mascota ";
       
         $stmt = $this->conn->prepare($query);
