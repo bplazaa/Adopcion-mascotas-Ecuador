@@ -19,7 +19,7 @@ class Usuario{
     public function __construct($db){
         $this->conn = $db;
     }
-
+ 
     // update the user data
     function update(){
             
@@ -63,6 +63,66 @@ class Usuario{
             
                 return false;
      }
+     function read(){
+        $query = "SELECT
+                    idUsuario,nombreUsuario, apelllidoUsuario,email,celular,direccion,edad
+                FROM usuario ";
+      
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+      
+        return $stmt;
+    }
+    function delete(){
+  
+        $query = "DELETE FROM usuario WHERE idUsuario = ?";
+      
+        $stmt = $this->conn->prepare($query);
+        $this->idUsuario=htmlspecialchars(strip_tags($this->idUsuario));
+        $stmt->bindParam(1, $this->idUsuario);
+      
+        if($stmt->execute()){
+            return true;
+        }
+      
+        return false;
+    }
+
+ 
+    function create(){
+  
+        // query to insert record
+        $query = "INSERT INTO usuario
+                SET
+                nombreUsuario=:nombreUsuario, apellidoUsuario=:apellidoUsuario, email=:email, celular=:celular, direccion=:direccion, edad=:edad";
+      
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+      
+        // sanitize
+        $this->nombreUsuario=htmlspecialchars(strip_tags($this->nombreUsuario));
+        $this->apellidoUsuario=htmlspecialchars(strip_tags($this->apellidoUsuario));
+        $this->email=htmlspecialchars(strip_tags($this->email));
+        $this->celular=htmlspecialchars(strip_tags($this->celular));
+        $this->direccion=htmlspecialchars(strip_tags($this->direccion));
+        $this->edad=htmlspecialchars(strip_tags($this->edad));
+      
+        // bind values
+        $stmt->bindParam(":nombreUsuario", $this->nombreUsuario);
+        $stmt->bindParam(":apellidoUsuario", $this->apellidoUsuario);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":celular", $this->celular);
+        $stmt->bindParam(":direccion", $this->direccion);
+        $stmt->bindParam(":edad", $this->edad);
+        
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+      
+        return false;
+          
+    }
 
 }
 

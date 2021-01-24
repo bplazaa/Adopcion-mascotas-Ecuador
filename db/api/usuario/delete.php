@@ -7,25 +7,25 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
   
 
 include_once '../config/database.php';
-include_once '../objects/mascota.php';
+include_once '../objects/usuario.php';
   
 // db
 $database = new Database();
 $db = $database->getConnection();
   
-$mascota = new Mascota($db);
+$usuario = new Usuario($db);
   
 $data = json_decode(file_get_contents("php://input"));
-$mascota->id = $data->id;
+$usuario->idUsuario = $data->idUsuario;
   
-if($mascota->delete()){
+if($usuario->delete()){
     http_response_code(200);
-    echo json_encode(array("mensaje" => "Mascota eliminada"));
+    echo json_encode(array("mensaje" => "Usuario eliminado :)"));
 }
   
 else{
   
     http_response_code(503);
-    echo json_encode(array("mensaje" => "No se pudo eliminar a la mascota"));
+    echo json_encode(array("mensaje" => "No se pudo eliminar usuario"));
 }
 ?>

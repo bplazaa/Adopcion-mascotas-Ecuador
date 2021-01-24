@@ -8,44 +8,44 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/mascota.php';
+include_once '../objects/usuario.php';
 
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
 
-$mascota = new Mascota($db);
+$usuario = new Usuario($db);
 
 
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
-  
+ 
 // make sure data is not empty
 if(
-        !empty($data->nombre) &&
-        !empty($data->raza) &&
-        !empty($data->contacto) &&
-        !empty($data->sexo)&&
-        !empty($data->especie)&&
-        !empty($data->foto)
+        !empty($data->nombreUsuario) &&
+        !empty($data->apellidoUsuario) &&
+        !empty($data->email) &&
+        !empty($data->celular)&&
+        !empty($data->direccion)&&
+        !empty($data->edad)
 ){
 
         // set product property values
-        $mascota->nombre = $data->nombre;
-        $mascota->raza = $data->raza;
-        $mascota->contacto = $data->contacto;
-        $mascota->sexo = $data->sexo;
-        $mascota->especie = $data->especie;
-        $mascota->foto = $data->foto;
+        $usuario->nombreUsuario = $data->nombreUsuario;
+        $usuario->apellidoUsuario = $data->apellidoUsuario;
+        $usuario->email = $data->email;
+        $usuario->celular = $data->celular;
+        $usuario->direccion = $data->direccion;
+        $usuario->edad = $data->edad;
     
         // create the product
-        if($mascota->create()){
+        if($usuario->create()){
     
             // set response code - 201 created
             http_response_code(201);
     
             // tell the user
-            echo json_encode(array("mensaje" => "La macota fue creada."));
+            echo json_encode(array("mensaje" => "Se ha creado un nuevo usuario."));
         }
     
         // if unable to create the product, tell the user
@@ -55,7 +55,7 @@ if(
             http_response_code(503);
     
             // tell the user
-            echo json_encode(array("mensaje" => "No se puede crear la mascota."));
+            echo json_encode(array("mensaje" => "No se puede crear el usuario."));
         }
     }
     
@@ -66,6 +66,6 @@ if(
         http_response_code(400);
     
         // tell the user
-        echo json_encode(array("mensaje" => "No se puede crear la mascota. Datos incompletos."));
+        echo json_encode(array("mensaje" => "No se puede crear un usuario. Datos incompletos."));
     }
 ?>
