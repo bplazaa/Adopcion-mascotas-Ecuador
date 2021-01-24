@@ -2,3 +2,19 @@
 /firebase/includes/composer.json
 /firebase/includes/composer.lock
 /firebase/includes/adopcion-mascotas-ecuador-firebase-adminsdk-yrojd-5b84227a84.json
+
+# app
+/app/*.iml
+/app/.gradle
+/app/local.properties
+/app/.idea/caches
+/app/.idea/libraries
+/app/.idea/modules.xml
+/app/.idea/workspace.xml
+/app/.idea/navEditor.xml
+/app/.idea/assetWizardSettings.xml
+/app/.DS_Store
+/app/build
+/app/captures
+/app/.externalNativeBuild
+/app/.cxx

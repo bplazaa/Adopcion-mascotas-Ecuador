@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "973315030843",
+    "firebase_url": "https://adopcion-mascotas-ecuador-default-rtdb.firebaseio.com",
+    "project_id": "adopcion-mascotas-ecuador",
+    "storage_bucket": "adopcion-mascotas-ecuador.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973315030843:android:1d2f31d27523001533011e",
+        "android_client_info": {
+          "package_name": "com.example.adopcionmascotasecuador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973315030843-rodqei41vp66h0nggagm1rp3kltclsj1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adopcionmascotasecuador",
+            "certificate_hash": "70477383c9b795af13cf2771d4d6ac4e23fe4845"
+          }
+        },
+        {
+          "client_id": "973315030843-plbeqoekq8k9vrmic3e8h1i3d1i0a021.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlg7dwZJ7zR-vHTjG39YQfOjl4STFQEAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973315030843-plbeqoekq8k9vrmic3e8h1i3d1i0a021.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
