@@ -46,7 +46,7 @@ else{
     // No se han encontrado mascotas
     http_response_code(404); // Error
     echo json_encode(
-        array("message" => "No se encontro a la mascota")
+        array("mensaje" => "No se encontro a la mascota")
     );
 }
 

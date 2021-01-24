@@ -37,7 +37,7 @@ if($usuario->update()){
     http_response_code(200);
   
     // tell the user
-    echo json_encode(array("message" => "Product was user."));
+    echo json_encode(array("mensaje" => "El usuario fue actualizado."));
 }
   
 // if unable to update the product, tell the user
@@ -47,6 +47,6 @@ else{
     http_response_code(503);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to update user."));
+    echo json_encode(array("mensaje" => "No se puedo actualizar el usuario."));
 }
 ?>

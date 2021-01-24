@@ -20,12 +20,12 @@ $mascota->id = $data->id;
   
 if($mascota->delete()){
     http_response_code(200);
-    echo json_encode(array("message" => "Mascota eliminada"));
+    echo json_encode(array("mensaje" => "Mascota eliminada"));
 }
   
 else{
   
     http_response_code(503);
-    echo json_encode(array("message" => "No se pudo eliminar a la mascota"));
+    echo json_encode(array("mensaje" => "No se pudo eliminar a la mascota"));
 }
 ?>

@@ -45,7 +45,7 @@ if(
             http_response_code(201);
     
             // tell the user
-            echo json_encode(array("message" => "Product was created."));
+            echo json_encode(array("mensaje" => "La macota fue creada."));
         }
     
         // if unable to create the product, tell the user
@@ -55,7 +55,7 @@ if(
             http_response_code(503);
     
             // tell the user
-            echo json_encode(array("message" => "Unable to create pet."));
+            echo json_encode(array("mensaje" => "No se puede crear la mascota."));
         }
     }
     
@@ -66,6 +66,6 @@ if(
         http_response_code(400);
     
         // tell the user
-        echo json_encode(array("message" => "Unable to create pet . Data is incomplete."));
+        echo json_encode(array("mensaje" => "No se puede crear la mascota. Datos incompletos."));
     }
 ?>

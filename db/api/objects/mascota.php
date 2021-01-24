@@ -81,6 +81,51 @@ class Mascota{
           
     }
 
+
+    // update the pet
+    function update(){
+    
+        // update query
+        $query = "UPDATE
+                    mascota
+                SET
+                    nombre = :nombre,
+                    raza = :raza,
+                    contacto = :contacto,
+                    sexo = :sexo,
+                    especie = :especie,
+                    foto= :foto
+                WHERE
+                    id = :id";
+    
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+    
+        // sanitize
+        $this->nombre=htmlspecialchars(strip_tags($this->nombre));
+        $this->raza=htmlspecialchars(strip_tags($this->raza));
+        $this->contacto=htmlspecialchars(strip_tags($this->contacto));
+        $this->sexo=htmlspecialchars(strip_tags($this->sexo));
+        $this->especie=htmlspecialchars(strip_tags($this->especie));
+        $this->foto=htmlspecialchars(strip_tags($this->foto));
+    
+        // bind new values
+        $stmt->bindParam(':nombre', $this->nombre);
+        $stmt->bindParam(':raza', $this->raza);
+        $stmt->bindParam(':contacto', $this->contacto);
+        $stmt->bindParam(':sexo', $this->sexo);
+        $stmt->bindParam(':especie', $this->especie);
+        $stmt->bindParam(':foto', $this->foto);
+        $stmt->bindParam(':id', $this->id);
+    
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }
+    
+        return false;
+    }
+
 }
 
 ?>
