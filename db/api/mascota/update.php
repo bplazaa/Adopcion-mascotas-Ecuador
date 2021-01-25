@@ -38,7 +38,7 @@ if($mascota->update()){
     http_response_code(200);
   
     // tell the user
-    echo json_encode(array("mensaje" => "La mascota no fue actualizada."));
+    echo json_encode(array("mensaje" => "La mascota fue actualizada."));
 }
   
 // if unable to update the pet, tell the user
