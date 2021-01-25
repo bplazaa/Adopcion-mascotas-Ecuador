@@ -2,7 +2,7 @@
 class Database{
   
     // specify your own database credentials
-    private $host = "192.168.100.49";
+    private $host = "localhost";
     private $db_name = "adopciones";
     private $username = "root";
     private $password = "";
