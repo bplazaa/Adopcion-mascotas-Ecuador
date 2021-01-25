@@ -30,6 +30,33 @@ class Mascota{
         return $stmt;
     }
 
+    function readOne(){
+        $query = "SELECT
+                    id,nombre,raza,contacto,sexo,especie,foto
+                FROM
+                    mascota
+                WHERE
+                    id = ?
+                LIMIT
+                    0,1";
+      
+
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindParam(1, $this->id);
+      
+        $stmt->execute();
+      
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      
+        $this->nombre = $row['nombre'];
+        $this->raza = $row['raza'];
+        $this->contacto = $row['contacto'];
+        $this->sexo = $row['sexo'];
+        $this->especie = $row['especie'];
+        $this->foto = $row['foto'];
+
+    }
+
     
     function delete(){
   

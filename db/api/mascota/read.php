@@ -32,7 +32,8 @@ if($num>0){
             "raza" => $raza,
             "contacto" => $contacto,
             "sexo" => $sexo,
-            "especie" => $especie
+            "especie" => $especie,
+            "foto" => $foto
         );
   
         array_push($mascotas_arr["records"], $mascota_item);
