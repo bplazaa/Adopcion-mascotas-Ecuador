@@ -76,7 +76,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun action(){
-        startActivity(Intent(this,LoginActivity::class.java))
+        startActivity(Intent(this,
+            LoginActivity::class.java))
     }
 
 

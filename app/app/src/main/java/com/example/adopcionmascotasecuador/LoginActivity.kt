@@ -58,13 +58,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun action(){
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this,
+            MainActivity::class.java))
     }
 
 
 
     fun register(view:View){
-        startActivity(Intent(this,RegisterActivity::class.java))
+        startActivity(Intent(this,
+            RegisterActivity::class.java))
     }
 
 }
