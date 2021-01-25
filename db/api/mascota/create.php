@@ -30,7 +30,7 @@ if(
         !empty($data->foto)
 ){
 
-        // set product property values
+        // set pet property values
         $mascota->nombre = $data->nombre;
         $mascota->raza = $data->raza;
         $mascota->contacto = $data->contacto;
@@ -38,7 +38,7 @@ if(
         $mascota->especie = $data->especie;
         $mascota->foto = $data->foto;
     
-        // create the product
+        // create the pet
         if($mascota->create()){
     
             // set response code - 201 created
@@ -48,7 +48,7 @@ if(
             echo json_encode(array("mensaje" => "La macota fue creada."));
         }
     
-        // if unable to create the product, tell the user
+        // if unable to create the pet, tell the user
         else{
     
             // set response code - 503 service unavailable

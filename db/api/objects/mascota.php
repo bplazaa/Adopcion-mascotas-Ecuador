@@ -108,6 +108,7 @@ class Mascota{
         $this->sexo=htmlspecialchars(strip_tags($this->sexo));
         $this->especie=htmlspecialchars(strip_tags($this->especie));
         $this->foto=htmlspecialchars(strip_tags($this->foto));
+        $this->id=htmlspecialchars(strip_tags($this->id));
     
         // bind new values
         $stmt->bindParam(':nombre', $this->nombre);

@@ -14,16 +14,16 @@ include_once '../objects/mascota.php';
 $database = new Database();
 $db = $database->getConnection();
   
-// prepare product object
+// prepare pet object
 $mascota = new Mascota($db);
   
-// get id of product to be edited
+// get id of pet to be edited
 $data = json_decode(file_get_contents("php://input"));
   
-// set ID property of product to be edited
+// set ID property of pet to be edited
 $mascota->id = $data->id;
   
-// set product property values
+// set pet property values
 $mascota->nombre = $data->nombre;
 $mascota->raza = $data->raza;
 $mascota->contacto = $data->contacto;
@@ -31,7 +31,7 @@ $mascota->sexo = $data->sexo;
 $mascota->especie = $data->especie;
 $mascota->foto = $data->foto;
   
-// update the product
+// update the pet
 if($mascota->update()){
   
     // set response code - 200 ok
@@ -41,7 +41,7 @@ if($mascota->update()){
     echo json_encode(array("mensaje" => "La mascota no fue actualizada."));
 }
   
-// if unable to update the product, tell the user
+// if unable to update the pet, tell the user
 else{
   
     // set response code - 503 service unavailable
