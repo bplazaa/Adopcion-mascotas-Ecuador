@@ -49,7 +49,7 @@ class Usuario{
             
                 // bind new values
                 $stmt->bindParam(':nombreUsuario', $this->nombreUsuario);
-                $stmt->bindParam(':apelllidoUsuario', $this->apelllidoUsuario);
+                $stmt->bindParam(':apellidoUsuario', $this->apelllidoUsuario);
                 $stmt->bindParam(':email', $this->email);
                 $stmt->bindParam(':celular', $this->celular);
                 $stmt->bindParam(':direccion', $this->direccion);
@@ -65,7 +65,7 @@ class Usuario{
      }
      function read(){
         $query = "SELECT
-                    idUsuario,nombreUsuario, apelllidoUsuario,email,celular,direccion,edad
+                    idUsuario,nombreUsuario, apellidoUsuario,email,celular,direccion,edad
                 FROM usuario ";
       
         $stmt = $this->conn->prepare($query);
