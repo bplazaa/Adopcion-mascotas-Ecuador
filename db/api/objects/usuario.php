@@ -49,7 +49,7 @@ class Usuario{
             
                 // bind new values
                 $stmt->bindParam(':nombreUsuario', $this->nombreUsuario);
-                $stmt->bindParam(':apellidoUsuario', $this->apelllidoUsuario);
+                $stmt->bindParam(':apellidoUsuario', $this->apellidoUsuario);
                 $stmt->bindParam(':email', $this->email);
                 $stmt->bindParam(':celular', $this->celular);
                 $stmt->bindParam(':direccion', $this->direccion);
