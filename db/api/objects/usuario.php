@@ -13,6 +13,7 @@ class Usuario{
     public $celular;
     public $direccion;
     public $edad;
+    public $password;
 
   
     // constructor with $db as database connection
@@ -62,8 +63,9 @@ class Usuario{
                 }
             
                 return false;
-     }
-     function read(){
+    }
+
+    function read(){
         $query = "SELECT
                     idUsuario,nombreUsuario, apellidoUsuario,email,celular,direccion,edad
                 FROM usuario ";
@@ -94,7 +96,7 @@ class Usuario{
         // query to insert record
         $query = "INSERT INTO usuario
                 SET
-                nombreUsuario=:nombreUsuario, apellidoUsuario=:apellidoUsuario, email=:email, celular=:celular, direccion=:direccion, edad=:edad";
+                nombreUsuario=:nombreUsuario, apellidoUsuario=:apellidoUsuario, email=:email,password=:password, celular=:celular, direccion=:direccion, edad=:edad";
       
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -103,6 +105,7 @@ class Usuario{
         $this->nombreUsuario=htmlspecialchars(strip_tags($this->nombreUsuario));
         $this->apellidoUsuario=htmlspecialchars(strip_tags($this->apellidoUsuario));
         $this->email=htmlspecialchars(strip_tags($this->email));
+        $this->password=htmlspecialchars(strip_tags($this->password));
         $this->celular=htmlspecialchars(strip_tags($this->celular));
         $this->direccion=htmlspecialchars(strip_tags($this->direccion));
         $this->edad=htmlspecialchars(strip_tags($this->edad));
@@ -111,18 +114,56 @@ class Usuario{
         $stmt->bindParam(":nombreUsuario", $this->nombreUsuario);
         $stmt->bindParam(":apellidoUsuario", $this->apellidoUsuario);
         $stmt->bindParam(":email", $this->email);
+
+        $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
+        $stmt->bindParam(":password", $password_hash);
+        
         $stmt->bindParam(":celular", $this->celular);
         $stmt->bindParam(":direccion", $this->direccion);
         $stmt->bindParam(":edad", $this->edad);
-        
+
         // execute query
         if($stmt->execute()){
             return true;
         }
       
         return false;
-          
     }
+
+    function emailExists(){
+         $query = "SELECT idUsuario,nombreUsuario, apellidoUsuario,
+                    email,celular,direccion,edad,password
+                FROM usuario
+                WHERE email = ?
+                LIMIT 0,1";
+     
+        $stmt = $this->conn->prepare( $query );
+     
+        $this->email=htmlspecialchars(strip_tags($this->email));
+        $stmt->bindParam(1, $this->email);
+     
+        $stmt->execute();
+     
+        $num = $stmt->rowCount();
+     
+        if($num>0){
+            // email existe en db
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     
+            $this->idUsuario = $row['idUsuario'];
+            $this->nombreUsuario = $row['nombreUsuario'];
+            $this->apellidoUsuario = $row['apellidoUsuario'];
+            $this->password = $row['password'];
+            $this->celular = $row['celular'];
+            $this->direccion = $row['direccion'];
+            $this->edad = $row['edad'];
+     
+            return true;
+        }
+     
+        return false; //No existe el email en db
+    }
+     
 
 }
 

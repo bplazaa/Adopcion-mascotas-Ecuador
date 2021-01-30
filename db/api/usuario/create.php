@@ -37,6 +37,7 @@ if(
         $usuario->celular = $data->celular;
         $usuario->direccion = $data->direccion;
         $usuario->edad = $data->edad;
+        $usuario->password = $data->password;
     
         // create the product
         if($usuario->create()){
