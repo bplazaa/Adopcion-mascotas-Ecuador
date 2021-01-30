@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.adopcionmascotas.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_noticias"
+        android:name="com.example.adopcionmascotas.ui.noticias.NoticiasFragment"
+        android:label="@string/menu_noticias"
+        tools:layout="@layout/noticias" />
+
+    <fragment
+        android:id="@+id/nav_dona"
+        android:name="com.example.adopcionmascotas.ui.dona.DonaFragment"
+        android:label="@string/menu_dona"
+        tools:layout="@layout/dona" />
+
+    <fragment
+        android:id="@+id/nav_contactanos"
+        android:name="com.example.adopcionmascotas.ui.contactanos.ContactanosFragment"
+        android:label="@string/menu_contactanos"
+        tools:layout="@layout/contactanos" />
+</navigation>
