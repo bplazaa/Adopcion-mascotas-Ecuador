@@ -1,15 +1,12 @@
 package com.example.adopcionmascotas.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adopcionmascotas.R
@@ -41,7 +38,7 @@ class HomeFragment : Fragment() {
 
         root.viewMascotas.layoutManager = LinearLayoutManager(this.context)
         root.viewMascotas.setHasFixedSize(true)
-//
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("http://192.168.11.8/db/api/mascota/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -86,8 +83,8 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-
         return root
+
     }
 
 
