@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/mascotas_info"
     android:gravity="center"
     android:layout_margin="10dp"
-
     >
 
     <ImageView
@@ -24,19 +24,35 @@
         android:gravity="center"
         >
 
-        <TextView
-            android:id="@+id/textMascotaNombre"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre"
-            android:textSize="20dp"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textnombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Nombre: "/>
+
+            <TextView
+                android:id="@+id/textMascotaNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textMascotaRaza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="Raza"
-            android:textSize="15dp"/>
+            android:textStyle="italic"
+            android:textSize="18dp"/>
 
     </LinearLayout>
 

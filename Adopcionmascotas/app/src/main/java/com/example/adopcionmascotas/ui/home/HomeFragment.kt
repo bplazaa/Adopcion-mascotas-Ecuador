@@ -1,18 +1,20 @@
 package com.example.adopcionmascotas.ui.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adopcionmascotas.R
 import com.example.adopcionmascotasecuador.AdaptadorMascota
 import com.example.adopcionmascotasecuador.ApiService
 import com.example.adopcionmascotasecuador.Mascota
+import com.example.adopcionmascotasecuador.OnMascotaItemClickListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -22,7 +24,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnMascotaItemClickListener{
 
     lateinit var service: ApiService
     lateinit var mascotasAdapter: AdaptadorMascota
@@ -54,7 +56,7 @@ class HomeFragment : Fragment() {
                 if(response.isSuccessful) {
 
                     val items = response.body()?.records
-                    if (items != null) {
+                    if (items != null && itemMascota.isEmpty()) {
                         for (i in 0 until items.count()) {
 
                             val id = items[i].id ?: 0
@@ -70,7 +72,7 @@ class HomeFragment : Fragment() {
 
                             itemMascota.add(mascota)
 
-                            mascotasAdapter = AdaptadorMascota(itemMascota)
+                            mascotasAdapter = AdaptadorMascota(itemMascota,this@HomeFragment)
                             mascotasAdapter.notifyDataSetChanged()
 
                             Log.d("Correcto", mascota.toString())
@@ -84,6 +86,21 @@ class HomeFragment : Fragment() {
             }
         }
         return root
+
+    }
+
+    override fun onItemClick(item: Mascota, position: Int) {
+//        Toast.makeText(this.context,item.nombre,Toast.LENGTH_LONG).show()
+//
+//        val intent = Intent(this.context,DatosMascota::class.java)
+//        intent.putExtra("MASCOTANAME", item.nombre)
+//
+//        startActivity(intent)
+
+
+
+
+
 
     }
 
