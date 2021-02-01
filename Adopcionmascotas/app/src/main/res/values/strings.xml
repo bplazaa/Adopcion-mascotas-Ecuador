@@ -12,4 +12,7 @@
     <string name="menu_dona">Dona</string>
     <string name="menu_contactanos">Contactanos</string>
     <string name="info_mascota">Info Mascota</string>
+    <string name="registrar_mascota">Registrar Mascota</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

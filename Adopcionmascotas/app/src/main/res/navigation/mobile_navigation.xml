@@ -39,5 +39,10 @@
         android:name="com.example.adopcionmascotas.ui.home.InfoMascota"
         android:label="@string/info_mascota"
         tools:layout="@layout/mascota_info"/>
+    <fragment
+        android:id="@+id/nav_registrarmascota"
+        android:name="com.example.adopcionmascotas.nav_registrarmascota"
+        android:label="@string/registrar_mascota"
+        tools:layout="@layout/nav_registrarmascota" />
 
 </navigation>
