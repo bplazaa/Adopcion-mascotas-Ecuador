@@ -5,16 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adopcionmascotas.R
 import com.example.adopcionmascotasecuador.AdaptadorMascota
 import com.example.adopcionmascotasecuador.ApiService
 import com.example.adopcionmascotasecuador.Mascota
-import com.example.adopcionmascotasecuador.OnMascotaItemClickListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +20,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class HomeFragment : Fragment(), OnMascotaItemClickListener{
+class HomeFragment : Fragment(){
 
     lateinit var service: ApiService
     lateinit var mascotasAdapter: AdaptadorMascota
@@ -38,9 +34,11 @@ class HomeFragment : Fragment(), OnMascotaItemClickListener{
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
+        // Coloca layout
         root.viewMascotas.layoutManager = LinearLayoutManager(this.context)
         root.viewMascotas.setHasFixedSize(true)
 
+        // Inicia request HTTP
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("http://192.168.11.8/db/api/mascota/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -70,13 +68,13 @@ class HomeFragment : Fragment(), OnMascotaItemClickListener{
 
                             val mascota = Mascota(id,nombre,raza,contacto,sexo,especie,foto)
 
-                            itemMascota.add(mascota)
+                            itemMascota.add(mascota) // Agrega mascota a lista de mascota
 
-                            mascotasAdapter = AdaptadorMascota(itemMascota,this@HomeFragment)
-                            mascotasAdapter.notifyDataSetChanged()
-
-                            Log.d("Correcto", mascota.toString())
                         }
+                        // Asigna adapter a item de RecyclerView
+                        mascotasAdapter = AdaptadorMascota(itemMascota)
+                        mascotasAdapter.notifyDataSetChanged()
+
                     }
                     viewMascotas.adapter = mascotasAdapter
                 }
@@ -88,21 +86,4 @@ class HomeFragment : Fragment(), OnMascotaItemClickListener{
         return root
 
     }
-
-    override fun onItemClick(item: Mascota, position: Int) {
-//        Toast.makeText(this.context,item.nombre,Toast.LENGTH_LONG).show()
-//
-//        val intent = Intent(this.context,DatosMascota::class.java)
-//        intent.putExtra("MASCOTANAME", item.nombre)
-//
-//        startActivity(intent)
-
-
-
-
-
-
-    }
-
-
 }

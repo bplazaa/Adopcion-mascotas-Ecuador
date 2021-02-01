@@ -3,43 +3,38 @@ package com.example.adopcionmascotasecuador
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewManager
-import android.widget.TextView
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adopcionmascotas.R
-import com.example.adopcionmascotas.ui.home.InfoMascota
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.mascota_gallery.view.*
 
 class AdaptadorMascota(
-    private val mascotas: MutableList<Mascota>, var clickListener: OnMascotaItemClickListener): RecyclerView.Adapter<AdaptadorMascota.MascotaViewHolder> (){
+    private val mascotas: MutableList<Mascota>): RecyclerView.Adapter<AdaptadorMascota.MascotaViewHolder> (){
 
     class MascotaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var mascotaNombre = itemView.textMascotaNombre
         var mascotaRaza = itemView.textMascotaRaza
         var mascotaFoto = itemView.imageMascota
 
-        fun initialize(item: Mascota,action:OnMascotaItemClickListener){
+        fun initialize(item: Mascota){
+            // Inicializa datos para elemento de RecyclerView
             mascotaNombre.text = item.nombre
             mascotaRaza.text = item.raza
             Picasso.get().load(item.foto).into(mascotaFoto)
 
             itemView.setOnClickListener{
-                action.onItemClick(item, adapterPosition)
-                var navInfoMascotas = this.itemView.findNavController().navigate(R.id.nav_info_mascotas)
 
+                // Envio de argumentos a InfoMascota
+                val idMascota:String =  item.id.toString()
+                val infoMascota = arrayOf<String>(idMascota, item.nombre, item.raza,item.contacto,item.sexo, item.foto)
+                val bundle = bundleOf("mascotaInfo" to infoMascota)
 
-
-//                val textNombre:TextView = itemView.findViewById(R.id.infoNombreMascota)
-//                textNombre.text = nombre
-
-
+                // Navigation hacia mascotas_info.xml
+                var navInfoMascotas = this.itemView.findNavController().navigate(R.id.nav_info_mascotas,bundle)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MascotaViewHolder {
@@ -58,23 +53,7 @@ class AdaptadorMascota(
         notifyItemInserted(mascotas.size-1)
     }
 
-
     override fun onBindViewHolder(holder: MascotaViewHolder, position: Int) {
-//        val mascotaActual = mascotas[position]
-//
-//        holder.itemView.apply {
-//            textMascotaNombre.text = mascotaActual.nombre
-//            textMascotaRaza.text = mascotaActual.raza
-//            Picasso.get().load(mascotaActual.foto).into(imageMascota)
-//        }
-
-        holder.initialize(mascotas.get(position), clickListener)
-
-
+        holder.initialize(mascotas.get(position))
     }
-}
-
-interface OnMascotaItemClickListener{
-    fun onItemClick(item:Mascota, position: Int)
-
 }
