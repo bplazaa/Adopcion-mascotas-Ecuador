@@ -5,14 +5,15 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Editar perfil</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home">Adopciones Mascota</string>
     <string name="menu_noticias">Noticias</string>
     <string name="menu_dona">Dona</string>
     <string name="menu_contactanos">Contactanos</string>
-    <string name="info_mascota">Info Mascota</string>
+    <string name="info_mascota">Información Mascota</string>
     <string name="registrar_mascota">Registrar Mascota</string>
+    <string name="actualizar_usuario">Actualización Datos</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
