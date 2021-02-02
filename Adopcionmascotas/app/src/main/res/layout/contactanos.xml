@@ -61,4 +61,12 @@
             android:textSize="18dp"/>
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageViewContactanos"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        tools:src="@tools:sample/avatars" />
+
+
 </LinearLayout>
