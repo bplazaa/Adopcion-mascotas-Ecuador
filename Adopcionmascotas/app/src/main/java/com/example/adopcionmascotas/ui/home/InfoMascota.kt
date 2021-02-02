@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import com.example.adopcionmascotas.R
 import com.example.adopcionmascotasecuador.ApiRequest
 import com.example.adopcionmascotasecuador.ApiService
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.squareup.picasso.Picasso
@@ -25,6 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Field
 import java.lang.IllegalStateException
 lateinit var idMascota:String
 
@@ -84,6 +86,8 @@ class InfoMascota : Fragment(){
                     DialogInterface.OnClickListener {dialog, id ->
                         // Adoptar
 
+//                        val gson:Gson = GsonBuilder().setLenient().create()
+
                         val retrofit: Retrofit = Retrofit.Builder()
                             .baseUrl("http://192.168.11.8/db/api/mascota/")
                             .addConverterFactory(GsonConverterFactory.create())
@@ -92,8 +96,16 @@ class InfoMascota : Fragment(){
                         service = retrofit.create<ApiService>(ApiService::class.java)
 
                         CoroutineScope(Dispatchers.IO).launch {
-                            val response = service.deleteMascotas(mapOf<String,String>("id" to idMascota))
+                            val response = service.deleteMascotas(mapOf("id" to idMascota))
                             withContext(Dispatchers.Main) {
+
+                                if(response.isSuccessful){
+                                    Log.i("DELETE HTTP okay",response.body()!!.string())
+
+                                }
+                                else{
+                                    Log.e("DELETE HTPP ERROR", response.body().toString())
+                                }
 //                                if(response.){
 //                                    Log.e("RETROFIT_ERROR","Error")
 //                                }
