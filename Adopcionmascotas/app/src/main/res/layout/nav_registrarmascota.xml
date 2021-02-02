@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="700dp"
+    android:orientation="vertical"
     tools:context=".nav_registrarmascota">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:layout_width="match_parent"
@@ -20,140 +23,128 @@
         android:textColor="#000000"
         android:textSize="24sp" />
 
-    <ScrollView
-        android:layout_width="420dp"
-        android:layout_height="660dp">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtfield1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtField1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:hint="Nombre de la mascota"
+            android:textColorHint="#FFFFFF" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtfield1"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginRight="15dp">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtfield2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtField1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nombre de la mascota"
-                    android:textColorHint="#FFFFFF" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtField2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Raza de la mascota" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtfield2"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtField2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Raza de la mascota" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtfield3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtField3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número de contacto" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtfield3"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtField3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Número de contacto" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtfield4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtField4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sexo de la mascota" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtfield4"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp">
+    <RadioGroup
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtField4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Sexo de la mascota" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Escoja especie:"
+            android:textSize="18sp" />
 
-            <RadioGroup
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp">
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gato" />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:text="Escoja especie:"
-                    android:textSize="18sp" />
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Perro" />
 
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Gato" />
+    </RadioGroup>
 
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Perro" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtfield5"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="15dp">
 
-            </RadioGroup>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtField5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cargue una foto" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtfield5"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="41dp"
-                android:layout_marginLeft="41dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginRight="15dp">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtField5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Cargue una foto" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="15dp"
+        android:text="Registrar" />
+</LinearLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:layout_marginLeft="130dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/ic_menu_camera" />
-
-        </LinearLayout>
-    </ScrollView>
-
-</FrameLayout>

@@ -68,48 +68,71 @@
                 android:layout_width="131dp"
                 android:layout_height="wrap_content"
                 android:text="Cuenta de Ahorro"
-                tools:layout_editor_absoluteX="96dp"
-                tools:layout_editor_absoluteY="16dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.076" />
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="301dp"
-                android:layout_height="24dp"
-                android:text="Nombre Cuenta: Adopcion Mascota Ecuador"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="49dp" />
+                android:layout_width="252dp"
+                android:layout_height="26dp"
+                android:text="Nombre Cuenta: Adopcion Mascota "
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.256" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="211dp"
                 android:layout_height="20dp"
                 android:text="Número de cuenta: 512435675"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="86dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.291"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.425" />
 
             <TextView
                 android:id="@+id/textView17"
-                android:layout_width="187dp"
+                android:layout_width="117dp"
                 android:layout_height="21dp"
                 android:text="Banco: Pacífico"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="123dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.152"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.596" />
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cédula: 09239858891"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="155dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.17"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.752" />
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ciudad: Guayaquil"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="194dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.143"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.923" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
