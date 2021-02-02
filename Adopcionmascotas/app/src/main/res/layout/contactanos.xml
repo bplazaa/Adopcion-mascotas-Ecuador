@@ -59,17 +59,6 @@
             android:layout_height="wrap_content"
             android:text="Numero de telefono: (02)8755645"
             android:textSize="18dp"/>
-
     </LinearLayout>
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_margin="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:layout_editor_absoluteX="201dp"
-        tools:layout_editor_absoluteY="476dp"
-        />
-
 
 </LinearLayout>

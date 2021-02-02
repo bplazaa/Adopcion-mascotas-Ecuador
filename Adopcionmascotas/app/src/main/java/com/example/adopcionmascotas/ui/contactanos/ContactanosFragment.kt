@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -26,6 +27,10 @@ class ContactanosFragment : Fragment() {
         contactanosViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+//        val map:WebView = root.findViewById(R.id.webMap)
+//        map.loadUrl("https://goo.gl/maps/z14bPZsv5z5CVHvj7")
+
         return root
     }
 }

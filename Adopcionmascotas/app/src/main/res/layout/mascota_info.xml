@@ -147,7 +147,7 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonAdoptarMascota"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_weight="1"
