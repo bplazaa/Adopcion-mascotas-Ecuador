@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     //event
         tvRegistrar.setOnClickListener{ startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))}
         tvForgotPass.setOnClickListener{ startActivity(Intent(this@LoginActivity, ForgotActivity::class.java))}
-        //btn_login.setOnClickListener{ startActivity(Intent(this@LoginActivity, MainActivity::class.java))}
+        btn_login.setOnClickListener{ startActivity(Intent(this@LoginActivity, MainActivity::class.java))}
 
 
 
