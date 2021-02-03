@@ -74,7 +74,7 @@ class nav_registrarmascota : Fragment() {
 
 
          val retrofit: Retrofit = Retrofit.Builder()
-                 .baseUrl("http://192.168.100.49/db/api/mascota/")
+                 .baseUrl("http://10.0.2.2/db/api/mascota/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build()
 

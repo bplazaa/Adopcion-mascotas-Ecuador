@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/baseline_home_24"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_noticias"
@@ -14,12 +14,12 @@
             android:title="@string/menu_noticias" />
         <item
             android:id="@+id/nav_dona"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/baseline_volunteer_activism_24"
             android:title="@string/menu_dona" />
 
         <item
             android:id="@+id/nav_contactanos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/baseline_perm_contact_calendar_24"
             android:title="@string/menu_contactanos" />
         <item
             android:id="@+id/nav_registrarmascota"
