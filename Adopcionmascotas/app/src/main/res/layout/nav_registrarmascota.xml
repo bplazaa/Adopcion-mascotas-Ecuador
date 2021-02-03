@@ -33,7 +33,7 @@
         android:layout_marginRight="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtField1"
+            android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre de la mascota"
@@ -50,7 +50,7 @@
         android:layout_marginRight="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtField2"
+            android:id="@+id/txtRaza"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Raza de la mascota" />
@@ -67,7 +67,7 @@
         android:layout_marginRight="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtField3"
+            android:id="@+id/txtContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Número de contacto" />
@@ -84,13 +84,14 @@
         android:layout_marginRight="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtField4"
+            android:id="@+id/txtSexo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Sexo de la mascota" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
+        android:id="@+id/RadioGroupEspecie"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
@@ -130,7 +131,7 @@
         android:layout_marginRight="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtField5"
+            android:id="@+id/txtFoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Cargue una foto" />
@@ -138,7 +139,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegistrar"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"

@@ -1,59 +1,85 @@
 package com.example.adopcionmascotas
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
+import com.example.adopcionmascotasecuador.ApiService
+import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [nav_registrarmascota.newInstance] factory method to
- * create an instance of this fragment.
- */
 class nav_registrarmascota : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var root:View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
+    }
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.nav_registrarmascota, container, false)
+        root = inflater.inflate(R.layout.nav_registrarmascota, container, false)
+        return root
+        
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment nav_registrarmascota.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            nav_registrarmascota().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
+     private fun addPet(){
+
+         lateinit var service: ApiService
+
+         // Valor de lo que ingresa
+         var nombre = root.findViewById<TextInputEditText>(R.id.txtNombre).text.toString()
+         var raza = root.findViewById<TextInputEditText>(R.id.txtRaza).text.toString()
+         var contacto = root.findViewById<TextInputEditText>(R.id.txtContacto).text.toString()
+         var sexo = root.findViewById<TextInputEditText>(R.id.txtSexo).text.toString()
+         var foto = root.findViewById<TextInputEditText>(R.id.txtFoto).text.toString()
+         var radio = root.findViewById<RadioGroup>(R.id.RadioGroupEspecie)
+         val radioButtonId: Int = radio.getCheckedRadioButtonId()
+         val radioButton: View = radio .findViewById(radioButtonId)
+         val indice: Int = radio.indexOfChild(radioButton)
+         val rb = radio .getChildAt(indice) as RadioButton
+         val especie = rb.text.toString()
+
+         //mapa del post
+         var mapa = mapOf<String,String>("nombre" to nombre,"raza" to raza,"contacto" to contacto,"sexo" to sexo ,"especie" to especie,"foto" to foto)
+
+         // boton registrar
+         var buttonRegistrar: Button = root.findViewById(R.id.btnRegistrar)
+
+         // evento del boton
+         buttonRegistrar.setOnClickListener{
+             val retrofit: Retrofit = Retrofit.Builder()
+                 .baseUrl("http://192.168.11.8/db/api/mascota/")
+                 .addConverterFactory(GsonConverterFactory.create())
+                 .build()
+
+             service = retrofit.create<ApiService>(ApiService::class.java)
+             CoroutineScope(Dispatchers.IO).launch {
+                 val response =service.createMascotas(mapa)
+                 withContext(Dispatchers.Main) {
+
+                     if(response.isSuccessful){
+                         Log.i("POST HTTP okay",response.body()!!.string())
+
+                     }
+                     else{
+                         Log.e("POST HTPP ERROR", response.body().toString())
+                     }
+                 }
+             }
+         }
+     }
+
 }

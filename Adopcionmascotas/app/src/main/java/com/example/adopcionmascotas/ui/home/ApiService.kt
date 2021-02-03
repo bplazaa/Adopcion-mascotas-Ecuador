@@ -15,6 +15,11 @@ interface ApiService {
     @Headers("Content-Type: application/json")
     @HTTP(method= "DELETE", path = "delete.php", hasBody = true)
     suspend fun deleteMascotas(@Body headers:Map<String, String>): Response<ResponseBody>
+
+    // Post
+    @Headers("Content-Type: application/json")
+    @HTTP(method= "POST", path = "create.php", hasBody = true)
+    suspend fun createMascotas(@Body headers:Map<String, String>): Response<ResponseBody>
 }
 
 public class ApiRequest(id:Int) {
