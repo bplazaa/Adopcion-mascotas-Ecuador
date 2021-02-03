@@ -30,8 +30,16 @@ class nav_registrarmascota : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         root = inflater.inflate(R.layout.nav_registrarmascota, container, false)
+        // boton registrar
+        var buttonRegistrar: Button = root.findViewById(R.id.btnRegistrar)
+
+        // evento del boton
+        buttonRegistrar.setOnClickListener{
+            addPet()
+
+        }
         return root
-        
+
     }
 
 
@@ -43,25 +51,30 @@ class nav_registrarmascota : Fragment() {
          var nombre = root.findViewById<TextInputEditText>(R.id.txtNombre).text.toString()
          var raza = root.findViewById<TextInputEditText>(R.id.txtRaza).text.toString()
          var contacto = root.findViewById<TextInputEditText>(R.id.txtContacto).text.toString()
-         var sexo = root.findViewById<TextInputEditText>(R.id.txtSexo).text.toString()
+
+         var radio1 = root.findViewById<RadioGroup>(R.id.RadioGroupSexo)
+         val radioButtonId1: Int = radio1.getCheckedRadioButtonId()
+         val radioButton1: View = radio1 .findViewById(radioButtonId1)
+         val indice1: Int = radio1.indexOfChild(radioButton1)
+         val rb1 = radio1 .getChildAt(indice1) as RadioButton
+         val sexo= rb1.text.toString()
+
+
          var foto = root.findViewById<TextInputEditText>(R.id.txtFoto).text.toString()
-         var radio = root.findViewById<RadioGroup>(R.id.RadioGroupEspecie)
-         val radioButtonId: Int = radio.getCheckedRadioButtonId()
-         val radioButton: View = radio .findViewById(radioButtonId)
-         val indice: Int = radio.indexOfChild(radioButton)
-         val rb = radio .getChildAt(indice) as RadioButton
-         val especie = rb.text.toString()
+
+         var radio2 = root.findViewById<RadioGroup>(R.id.RadioGroupEspecie)
+         val radioButtonId: Int = radio2.getCheckedRadioButtonId()
+         val radioButton: View = radio2 .findViewById(radioButtonId)
+         val indice: Int = radio2.indexOfChild(radioButton)
+         val rb2 = radio2 .getChildAt(indice) as RadioButton
+         val especie = rb2.text.toString()
 
          //mapa del post
          var mapa = mapOf<String,String>("nombre" to nombre,"raza" to raza,"contacto" to contacto,"sexo" to sexo ,"especie" to especie,"foto" to foto)
 
-         // boton registrar
-         var buttonRegistrar: Button = root.findViewById(R.id.btnRegistrar)
 
-         // evento del boton
-         buttonRegistrar.setOnClickListener{
-             val retrofit: Retrofit = Retrofit.Builder()
-                 .baseUrl("http://192.168.11.8/db/api/mascota/")
+         val retrofit: Retrofit = Retrofit.Builder()
+                 .baseUrl("http://192.168.100.49/db/api/mascota/")
                  .addConverterFactory(GsonConverterFactory.create())
                  .build()
 
@@ -78,7 +91,7 @@ class nav_registrarmascota : Fragment() {
                          Log.e("POST HTPP ERROR", response.body().toString())
                      }
                  }
-             }
+
          }
      }
 
